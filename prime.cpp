@@ -15,17 +15,16 @@ int firstCandidate(unsigned long int currPrime, vector<int>& possPrime){
 vector<unsigned long int> firstNPrime(unsigned long int n){
     
     vector<unsigned long int> primes;
-    primes.push_back(2);
     
     vector<int> possPrime;
-    unsigned long int currPrime = 2;
+    unsigned long int currPrime = 1;
     
     for (unsigned long int i = 0; i < n; i++) {
         possPrime.push_back(1);
     }
     possPrime.at(1) = 0;
     
-    while (currPrime < n) {
+    while (true) {
         currPrime = firstCandidate(currPrime,possPrime);
         
         if (currPrime == 0) {
@@ -34,7 +33,7 @@ vector<unsigned long int> firstNPrime(unsigned long int n){
         
         primes.push_back(currPrime);
         
-        for (int i = 0; i*currPrime < n; i++) {
+        for (int i = currPrime; i * currPrime < n; i++) {
             possPrime.at(i*currPrime) = 0;
         }
     }
