@@ -3,7 +3,7 @@
 using namespace std;
 
 int firstCandidate(unsigned long int currPrime, vector<int>& possPrime){
-    for (int i = currPrime + 1; i < possPrime.size(); i++) {
+    for (unsigned long int i = currPrime + 1; i < possPrime.size(); i++) {
         if (possPrime.at(i) == 1) {
             return i;
         }
@@ -37,6 +37,6 @@ vector<unsigned long int> firstNPrime(unsigned long int n){
             possPrime.at(i*currPrime) = 0;
         }
     }
-    
-    return primes;
 }
+
+// --------------------------------
